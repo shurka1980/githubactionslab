@@ -34,4 +34,6 @@ jobs:
         run: |
           echo Sasha, multiple lines
           echo Another test belongs to me.
-          echo ${{ secrets.FIRSTNAME }} | sed 's/ /g'
+          echo "SECRET_VALUE=${{ secrets.FIRSTNAME }}" >> GITHUB_ENV
+      - name: Print secret
+        run: echo $SECRET_VALUE
