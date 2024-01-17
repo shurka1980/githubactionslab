@@ -34,4 +34,4 @@ jobs:
         run: |
           echo Sasha, multiple lines
           echo Another test belongs to me.
-          echo ${{secrets.FirstName}}
+          echo ${{ secrets.FIRSTNAME }}
