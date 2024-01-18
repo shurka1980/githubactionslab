@@ -1,19 +1,24 @@
-name: WebAge Solutions Simple CI
+name: Print Secret Example
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
+
 jobs:
-  example-job:
+  print-secret:
     runs-on: ubuntu-latest
 
     steps:
       - name: Set Secret as Environment Variable
-        run: echo "SECRET_VALUE=${{ secrets.YOUR_SECRET }}" >> $GITHUB_ENV
+        run: echo "SECRET_VALUE=${{ secrets.FIRSTNAME }}" >> $GITHUB_ENV
 
       - name: Print Secret
         run: echo $SECRET_VALUE
+
+  debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Secret for Debugging
+        run: echo "Secret Value: ${{ secrets.FIRSTNAME }}"
